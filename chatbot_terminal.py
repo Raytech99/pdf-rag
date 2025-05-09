@@ -1,15 +1,9 @@
-# main.py: This file contains the code to interact with the PDF chatbot
-# The file is mainly intended for testing, debugging or if no web interface is needed
-# The chatbot uses a RAG pipeline that is defined in chatbot_core.py
+from chatbot_core import build_qa_chain
 
-from chatbot_core import build_qa_chain # Imports the RAG pipeline builder from chatbot_core.py
+qa_chain = build_qa_chain("ucf_rules.pdf") # Choose the PDF file to use
 
-qa_chain = build_qa_chain("ucf_rules.pdf") #Builds the QA chain using a local PDF file
-chat_history = [] #Initializes an empty list to store the chat history
+print("🧠 PDF-Chatbot started! Enter ‘exit’ to quit.")
 
-print("🧠 PDF-Chatbot started! Enter ‘exit’ to quit.") # Prints the welcome message to the terminal
-
-# Starts a loop to allow the user to ask questions continuously
 while True:
     query = input("\n❓ Your questions: ")
     # Breaks the loop if the user types 'exit' or 'quit'
